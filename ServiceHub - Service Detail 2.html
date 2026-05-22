@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ServiceHub — Desain Logo Profesional oleh Rian Pratama</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            DEFAULT: '#1E3A8A',
+            50:  '#EEF2FB',
+            100: '#DCE5F7',
+            200: '#B7C9EE',
+            500: '#3B5BBF',
+            700: '#1E3A8A',
+            800: '#172E6E',
+            900: '#0F1F4A',
+          },
+          accent: {
+            DEFAULT: '#F97316',
+            50:  '#FFF4EC',
+            100: '#FFE5D2',
+            500: '#F97316',
+            600: '#EA6A0E',
+            700: '#C25507',
+          },
+          ink: {
+            900: '#0F172A',
+            800: '#1E293B',
+            700: '#334155',
+            600: '#475569',
+            500: '#64748B',
+            400: '#94A3B8',
+          },
+          surface: {
+            DEFAULT: '#FFFFFF',
+            muted:   '#F9FAFB',
+            border:  '#E5E7EB',
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        },
+        boxShadow: {
+          'card':     '0 1px 2px rgba(15,23,42,0.04), 0 4px 16px rgba(15,23,42,0.06)',
+          'card-lg':  '0 4px 8px rgba(15,23,42,0.04), 0 16px 40px rgba(15,23,42,0.08)',
+          'focus':    '0 0 0 4px rgba(30,58,138,0.15)',
+        },
+        borderRadius: {
+          'xl': '14px',
+          '2xl': '20px',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #0F172A; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+
+  /* Lucide icon sizing default */
+  [data-lucide] { width: 1em; height: 1em; stroke-width: 2; }
+
+  /* Star rating gradient */
+  .star-fill   { color: #F59E0B; fill: #F59E0B; }
+  .star-empty  { color: #E5E7EB; fill: #E5E7EB; }
+
+  /* Tab underline */
+  .tab-btn { position: relative; padding: 14px 4px; color: #475569; font-weight: 500; font-size: 15px; transition: color .15s; }
+  .tab-btn:hover { color: #0F172A; }
+  .tab-btn.active { color: #1E3A8A; font-weight: 600; }
+  .tab-btn.active::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #1E3A8A; border-radius: 2px;
+  }
+
+  /* Portfolio hover */
+  .portfolio-item { overflow: hidden; }
+  .portfolio-item img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .portfolio-item:hover img { transform: scale(1.06); }
+  .portfolio-item .overlay {
+    position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0) 40%, rgba(15,23,42,.78) 100%);
+    opacity: 0; transition: opacity .25s;
+  }
+  .portfolio-item:hover .overlay { opacity: 1; }
+
+  /* Custom scrollbar for thumbnails */
+  .thumb-row::-webkit-scrollbar { height: 6px; }
+  .thumb-row::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+
+  /* Package tab styling */
+  .pkg-tab {
+    flex: 1; padding: 10px 8px; font-size: 13px; font-weight: 600; color: #64748B;
+    border-radius: 8px; transition: all .15s; cursor: pointer;
+  }
+  .pkg-tab.active { background: #FFFFFF; color: #1E3A8A; box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 2px 6px rgba(15,23,42,.06); }
+
+  /* Distribution bar */
+  .dist-bar { background: #E5E7EB; border-radius: 999px; overflow: hidden; }
+  .dist-bar > div { background: linear-gradient(90deg, #F59E0B, #F97316); height: 100%; border-radius: 999px; }
+
+  /* Form */
+  .field {
+    width: 100%; padding: 10px 12px; border: 1px solid #E5E7EB; border-radius: 10px; font-size: 14px;
+    background: #FFFFFF; transition: border-color .15s, box-shadow .15s;
+  }
+  .field:focus { outline: none; border-color: #1E3A8A; box-shadow: 0 0 0 4px rgba(30,58,138,.12); }
+
+  /* Verified check */
+  .verified-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 999px; background: #1E3A8A; color: white;
+  }
+
+  /* Hide scroll-anchor on smooth scroll */
+  section[id] { scroll-margin-top: 96px; }
+
+  /* CTA shadow */
+  .cta-shadow { box-shadow: 0 4px 14px rgba(249,115,22,.35), 0 1px 2px rgba(249,115,22,.2); }
+  .cta-shadow:hover { box-shadow: 0 6px 20px rgba(249,115,22,.45); }
+
+  /* Skeleton image fallback */
+  img { background: #F1F5F9; }
+</style>
+</head>
+<body class="bg-white text-ink-900">
+
+<!-- ============================== HEADER / NAVBAR ============================== -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-surface-border">
+  <div class="max-w-[1280px] mx-auto px-6 h-[68px] flex items-center gap-6">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 shrink-0">
+      <div class="w-9 h-9 rounded-lg bg-brand-700 flex items-center justify-center">
+        <i data-lucide="hexagon" class="text-white" style="width:20px;height:20px"></i>
+      </div>
+      <span class="text-[19px] font-bold tracking-tight text-brand-900">ServiceHub</span>
+    </a>
+
+    <!-- Search -->
+    <div class="flex-1 max-w-[560px] relative">
+      <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-ink-400" style="width:18px;height:18px"></i>
+      <input type="text" placeholder="Cari layanan…"
+             class="w-full h-11 pl-10 pr-24 rounded-full border border-surface-border bg-surface-muted text-sm placeholder:text-ink-400 focus:outline-none focus:bg-white focus:border-brand-700 focus:shadow-focus transition" />
+      <button class="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 px-4 rounded-full bg-brand-700 text-white text-xs font-semibold hover:bg-brand-800 transition">Cari</button>
+    </div>
+
+    <!-- Right menu -->
+    <nav class="flex items-center gap-1 shrink-0">
+      <a href="#" class="hidden lg:inline-block px-3 py-2 text-sm font-medium text-ink-700 hover:text-brand-700">Jadi Penyedia Jasa</a>
+      <button class="relative w-10 h-10 rounded-full hover:bg-surface-muted flex items-center justify-center text-ink-700">
+        <i data-lucide="bell" style="width:20px;height:20px"></i>
+        <span class="absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-accent-500 text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">3</span>
+      </button>
+      <button class="relative w-10 h-10 rounded-full hover:bg-surface-muted flex items-center justify-center text-ink-700">
+        <i data-lucide="message-circle" style="width:20px;height:20px"></i>
+        <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-accent-500 ring-2 ring-white"></span>
+      </button>
+      <button class="flex items-center gap-2 ml-1 pl-1 pr-2 py-1 rounded-full hover:bg-surface-muted transition">
+        <img src="https://i.pravatar.cc/80?img=12" alt="" class="w-8 h-8 rounded-full object-cover ring-2 ring-white" />
+        <i data-lucide="chevron-down" class="text-ink-500" style="width:16px;height:16px"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== BREADCRUMB ============================== -->
+<div class="max-w-[1280px] mx-auto px-6 pt-5 pb-2">
+  <nav class="flex items-center gap-1.5 text-[13px] text-ink-500 flex-wrap">
+    <a href="#" class="hover:text-brand-700">Home</a>
+    <i data-lucide="chevron-right" style="width:14px;height:14px" class="text-ink-400"></i>
+    <a href="#" class="hover:text-brand-700">Desain Grafis</a>
+    <i data-lucide="chevron-right" style="width:14px;height:14px" class="text-ink-400"></i>
+    <a href="#" class="hover:text-brand-700">Logo Design</a>
+    <i data-lucide="chevron-right" style="width:14px;height:14px" class="text-ink-400"></i>
+    <span class="text-ink-700 font-medium truncate">Desain Logo Profesional 3 Konsep + Revisi Tanpa Batas</span>
+  </nav>
+</div>
+
+<!-- ============================== MAIN GRID ============================== -->
+<main class="max-w-[1280px] mx-auto px-6 pb-20">
+  <div class="grid grid-cols-12 gap-8 mt-4">
+
+    <!-- ====================== LEFT COLUMN (65%) ====================== -->
+    <div class="col-span-12 lg:col-span-8 min-w-0">
+
+      <!-- TITLE -->
+      <h1 class="text-[28px] md:text-[32px] leading-[1.2] font-bold text-ink-900 tracking-tight">
+        Desain Logo Profesional dengan 3 Konsep dan Revisi Tanpa Batas
+      </h1>
+
+      <!-- Quick meta row -->
+      <div class="mt-4 flex items-center gap-4 text-sm text-ink-600 flex-wrap">
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="star" class="star-fill" style="width:16px;height:16px"></i>
+          <span class="font-semibold text-ink-900">4.9</span>
+          <span class="text-ink-500">(248 ulasan)</span>
+        </div>
+        <span class="text-surface-border">•</span>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="check-circle-2" class="text-emerald-500" style="width:16px;height:16px"></i>
+          <span>312 pekerjaan selesai</span>
+        </div>
+        <span class="text-surface-border">•</span>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="zap" class="text-amber-500" style="width:16px;height:16px"></i>
+          <span>Top Rated Seller</span>
+        </div>
+      </div>
+
+      <!-- ====================== CAROUSEL ====================== -->
+      <div class="mt-6">
+        <div class="relative rounded-2xl overflow-hidden bg-surface-muted aspect-[16/10] shadow-card group">
+          <img id="mainImage" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=80"
+               alt="Portofolio utama" class="w-full h-full object-cover transition-opacity duration-300" />
+          <!-- Caption pill -->
+          <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/55 backdrop-blur text-white text-xs font-medium flex items-center gap-1.5">
+            <i data-lucide="image" style="width:14px;height:14px"></i>
+            <span id="imageCount">1 / 6</span>
+          </div>
+          <!-- Arrows -->
+          <button id="prevImg" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 hover:bg-white shadow-card flex items-center justify-center text-ink-800 transition">
+            <i data-lucide="chevron-left" style="width:20px;height:20px"></i>
+          </button>
+          <button id="nextImg" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 hover:bg-white shadow-card flex items-center justify-center text-ink-800 transition">
+            <i data-lucide="chevron-right" style="width:20px;height:20px"></i>
+          </button>
+        </div>
+        <!-- Thumbnails -->
+        <div id="thumbRow" class="thumb-row mt-3 flex gap-2.5 overflow-x-auto pb-2"></div>
+      </div>
+
+      <!-- ====================== TABS NAV ====================== -->
+      <div class="mt-8 border-b border-surface-border sticky top-[68px] bg-white/95 backdrop-blur z-20">
+        <div class="flex items-center gap-7 overflow-x-auto">
+          <button data-tab="deskripsi" class="tab-btn active">Deskripsi</button>
+          <button data-tab="portofolio" class="tab-btn">Portofolio</button>
+          <button data-tab="paket"      class="tab-btn">Paket Harga</button>
+          <button data-tab="review"     class="tab-btn">Rating &amp; Review</button>
+          <button data-tab="faq"        class="tab-btn">FAQ</button>
+        </div>
+      </div>
+
+      <!-- ====================== SECTION: DESKRIPSI ====================== -->
+      <section id="deskripsi" class="pt-10">
+        <h2 class="text-xl font-bold text-ink-900">Tentang layanan ini</h2>
+        <div class="mt-4 space-y-4 text-[15px] leading-[1.75] text-ink-700">
+          <p>
+            Halo, saya Rian — desainer grafis dengan pengalaman lebih dari 8 tahun membantu lebih dari 300 brand
+            UMKM, startup, dan korporasi membangun identitas visual yang kuat. Saya percaya logo bukan sekadar
+            gambar, melainkan fondasi dari cerita brand Anda. Karena itu setiap proyek selalu saya mulai dari
+            riset singkat tentang bisnis, audiens, dan kompetitor Anda.
+          </p>
+          <p>
+            Dalam paket ini Anda akan mendapatkan tiga konsep berbeda yang dirancang khusus berdasarkan brief
+            Anda — bukan template siap pakai. Setelah memilih konsep favorit, Anda bebas meminta revisi tanpa
+            batas hingga benar-benar puas. Saya juga menyediakan file source dalam format Adobe Illustrator
+            dan PSD agar logo Anda dapat dikembangkan lebih lanjut di masa depan.
+          </p>
+          <p>
+            Saya berkomitmen merespons pesan dalam waktu kurang dari 1 jam pada hari kerja, dan menyelesaikan
+            pekerjaan tepat waktu. Mari bicarakan ide brand Anda terlebih dulu — klik tombol "Kirim Pesan" dan
+            saya akan bantu menyiapkan brief yang tepat untuk Anda.
+          </p>
+        </div>
+
+        <!-- What you get -->
+        <div class="mt-6 rounded-2xl border border-surface-border bg-surface-muted p-6">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-ink-500">Apa yang Anda dapatkan</h3>
+          <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">3 konsep logo unik &amp; original</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">File source <strong>AI / PSD</strong> editable</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">Revisi tanpa batas hingga puas</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">Hak cipta penuh dialihkan ke Anda</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">Format PNG, JPG, SVG, PDF, EPS</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center"><i data-lucide="check" style="width:12px;height:12px;stroke-width:3"></i></span><span class="text-[15px] text-ink-800">Pengerjaan 3–5 hari kerja</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================== SECTION: PORTOFOLIO ====================== -->
+      <section id="portofolio" class="pt-14">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-bold text-ink-900">Portofolio terbaru</h2>
+            <p class="mt-1 text-sm text-ink-500">Sebagian kecil dari 80+ karya yang telah saya kerjakan.</p>
+          </div>
+          <a href="#" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800">Lihat semua <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+        </div>
+
+        <div class="mt-5 grid grid-cols-2 md:grid-cols-3 gap-4" id="portfolioGrid"></div>
+      </section>
+
+      <!-- ====================== SECTION: REVIEW ====================== -->
+      <section id="review" class="pt-14">
+        <h2 class="text-xl font-bold text-ink-900">Rating &amp; Ulasan</h2>
+
+        <div class="mt-5 rounded-2xl border border-surface-border p-6 bg-white shadow-card">
+          <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center">
+            <!-- Summary -->
+            <div class="text-center md:text-left md:border-r md:border-surface-border md:pr-8">
+              <div class="text-[56px] leading-none font-bold text-ink-900 tracking-tight">4.9</div>
+              <div class="mt-2 flex items-center justify-center md:justify-start gap-0.5">
+                <i data-lucide="star" class="star-fill"></i>
+                <i data-lucide="star" class="star-fill"></i>
+                <i data-lucide="star" class="star-fill"></i>
+                <i data-lucide="star" class="star-fill"></i>
+                <i data-lucide="star" class="star-fill"></i>
+              </div>
+              <div class="mt-2 text-sm text-ink-500">Berdasarkan <strong class="text-ink-700">248 ulasan</strong></div>
+            </div>
+            <!-- Distribution -->
+            <div class="space-y-2">
+              <!-- bars filled by JS -->
+              <div id="distBars"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter row -->
+        <div class="mt-6 flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex items-center gap-2 text-sm text-ink-600">
+            <span class="font-medium text-ink-700">Filter:</span>
+            <button class="px-3 py-1.5 rounded-full bg-brand-700 text-white text-xs font-semibold">Semua</button>
+            <button class="px-3 py-1.5 rounded-full bg-surface-muted hover:bg-surface-border text-ink-700 text-xs font-medium">Dengan foto</button>
+            <button class="px-3 py-1.5 rounded-full bg-surface-muted hover:bg-surface-border text-ink-700 text-xs font-medium">5 bintang</button>
+          </div>
+          <div class="relative">
+            <select class="appearance-none pl-3 pr-9 py-2 rounded-lg border border-surface-border text-sm font-medium text-ink-700 bg-white hover:border-ink-400 focus:outline-none focus:border-brand-700 cursor-pointer">
+              <option>Rating Tertinggi</option>
+              <option>Terbaru</option>
+              <option>Paling Membantu</option>
+            </select>
+            <i data-lucide="chevron-down" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-ink-500 pointer-events-none" style="width:16px;height:16px"></i>
+          </div>
+        </div>
+
+        <!-- Review list -->
+        <div class="mt-5 space-y-5" id="reviewList"></div>
+
+        <div class="mt-6 text-center">
+          <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-surface-border hover:border-brand-700 hover:text-brand-700 font-semibold text-sm transition">
+            Lihat semua 248 ulasan <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- ====================== SECTION: FAQ ====================== -->
+      <section id="faq" class="pt-14">
+        <h2 class="text-xl font-bold text-ink-900">Pertanyaan yang sering diajukan</h2>
+        <div class="mt-5 divide-y divide-surface-border border border-surface-border rounded-2xl overflow-hidden bg-white" id="faqList"></div>
+      </section>
+
+    </div>
+
+    <!-- ====================== RIGHT COLUMN (35%) ====================== -->
+    <aside class="col-span-12 lg:col-span-4">
+      <div class="lg:sticky lg:top-[88px] space-y-5">
+
+        <!-- Provider info card -->
+        <div class="rounded-2xl border border-surface-border bg-white shadow-card p-5">
+          <div class="flex items-center gap-3">
+            <div class="relative shrink-0">
+              <img src="https://i.pravatar.cc/120?img=33" alt="Rian Pratama"
+                   class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow" />
+              <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <h3 class="font-semibold text-ink-900 truncate">Rian Pratama</h3>
+                <span class="verified-badge" title="Akun terverifikasi"><i data-lucide="check" style="width:11px;height:11px;stroke-width:3.5"></i></span>
+              </div>
+              <p class="text-xs text-ink-500 mt-0.5">Logo &amp; Brand Identity Designer</p>
+              <div class="mt-1 flex items-center gap-1 text-xs">
+                <i data-lucide="star" class="star-fill" style="width:13px;height:13px"></i>
+                <span class="font-semibold text-ink-900">4.9</span>
+                <span class="text-ink-500">(248)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <dl class="mt-5 grid grid-cols-3 gap-2 text-center">
+            <div class="rounded-xl bg-surface-muted py-3 px-1">
+              <dt class="text-[11px] uppercase tracking-wider text-ink-500 font-medium">Selesai</dt>
+              <dd class="mt-0.5 font-bold text-ink-900">312</dd>
+            </div>
+            <div class="rounded-xl bg-surface-muted py-3 px-1">
+              <dt class="text-[11px] uppercase tracking-wider text-ink-500 font-medium">Respon</dt>
+              <dd class="mt-0.5 font-bold text-ink-900">&lt; 1 jam</dd>
+            </div>
+            <div class="rounded-xl bg-surface-muted py-3 px-1">
+              <dt class="text-[11px] uppercase tracking-wider text-ink-500 font-medium">Lokasi</dt>
+              <dd class="mt-0.5 font-bold text-ink-900">Jakarta</dd>
+            </div>
+          </dl>
+
+          <!-- Buttons -->
+          <div class="mt-5 grid grid-cols-2 gap-2.5">
+            <button class="inline-flex items-center justify-center gap-1.5 h-10 rounded-lg border border-brand-700 text-brand-700 text-sm font-semibold hover:bg-brand-50 transition">
+              <i data-lucide="user" style="width:15px;height:15px"></i> Profil
+            </button>
+            <button class="inline-flex items-center justify-center gap-1.5 h-10 rounded-lg border border-brand-700 text-brand-700 text-sm font-semibold hover:bg-brand-50 transition">
+              <i data-lucide="message-square" style="width:15px;height:15px"></i> Kirim Pesan
+            </button>
+          </div>
+        </div>
+
+        <!-- ====================== SERVICE REQUEST BOX ====================== -->
+        <div class="rounded-2xl border border-surface-border bg-white shadow-card-lg overflow-hidden">
+
+          <!-- Package tabs -->
+          <div class="px-4 pt-4">
+            <div class="flex gap-1 bg-surface-muted p-1 rounded-xl">
+              <button data-pkg="basic"    class="pkg-tab active">Basic</button>
+              <button data-pkg="standard" class="pkg-tab">Standard</button>
+              <button data-pkg="premium"  class="pkg-tab">Premium</button>
+            </div>
+          </div>
+
+          <!-- Package details -->
+          <div class="px-5 pt-5 pb-4">
+            <div class="flex items-baseline justify-between gap-2">
+              <div>
+                <h4 id="pkgName" class="font-bold text-ink-900">Paket Basic</h4>
+                <p id="pkgTagline" class="text-xs text-ink-500 mt-0.5">Untuk kebutuhan dasar &amp; UMKM</p>
+              </div>
+              <div class="text-right">
+                <div id="pkgPrice" class="text-[22px] font-bold text-ink-900 tracking-tight">Rp 350.000</div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-4 text-xs text-ink-600">
+              <span class="flex items-center gap-1.5"><i data-lucide="clock-3" style="width:14px;height:14px"></i> <span id="pkgDuration">3 hari kerja</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="refresh-cw" style="width:14px;height:14px"></i> <span id="pkgRev">2x revisi</span></span>
+              <span class="flex items-center gap-1.5"><i data-lucide="layers" style="width:14px;height:14px"></i> <span id="pkgConcepts">1 konsep</span></span>
+            </div>
+
+            <!-- Feature list -->
+            <ul id="pkgFeatures" class="mt-4 space-y-2.5 text-sm"></ul>
+          </div>
+
+          <!-- Form -->
+          <div class="px-5 pb-5 space-y-3 border-t border-surface-border pt-5 bg-surface-muted/50">
+            <div>
+              <label class="block text-xs font-semibold text-ink-700 mb-1.5">Tanggal mulai yang diinginkan</label>
+              <div class="relative">
+                <i data-lucide="calendar" class="absolute left-3 top-1/2 -translate-y-1/2 text-ink-400" style="width:16px;height:16px"></i>
+                <input type="date" value="2026-05-25" class="field pl-9" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink-700 mb-1.5">Catatan kepada penyedia jasa</label>
+              <textarea rows="3" placeholder="Ceritakan tentang bisnis Anda, gaya yang diinginkan, dan referensi…" class="field resize-none"></textarea>
+            </div>
+          </div>
+
+          <!-- Cost breakdown -->
+          <div class="px-5 py-4 border-t border-surface-border bg-white text-sm">
+            <div class="flex justify-between text-ink-700"><span>Harga layanan</span><span id="costService">Rp 350.000</span></div>
+            <div class="flex justify-between text-ink-700 mt-1.5"><span>Biaya platform (5%)</span><span id="costFee">Rp 17.500</span></div>
+            <div class="border-t border-dashed border-surface-border my-3"></div>
+            <div class="flex justify-between items-baseline">
+              <span class="font-semibold text-ink-900">Total</span>
+              <span id="costTotal" class="text-lg font-bold text-ink-900">Rp 367.500</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="px-5 pb-5">
+            <button class="cta-shadow w-full h-12 rounded-xl bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white font-bold text-[15px] flex items-center justify-center gap-2 transition">
+              Kirim Permintaan Layanan
+              <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+            </button>
+            <a href="#" class="block mt-3 text-center text-xs font-medium text-brand-700 hover:text-brand-800 hover:underline">Tanyakan dulu kepada penyedia jasa</a>
+
+            <!-- Trust badges -->
+            <div class="mt-4 pt-4 border-t border-dashed border-surface-border flex items-center justify-around text-[11px] text-ink-500">
+              <div class="flex flex-col items-center gap-1"><i data-lucide="shield-check" class="text-emerald-600" style="width:18px;height:18px"></i><span>Pembayaran Aman</span></div>
+              <div class="flex flex-col items-center gap-1"><i data-lucide="rotate-ccw" class="text-brand-700" style="width:18px;height:18px"></i><span>Money Back</span></div>
+              <div class="flex flex-col items-center gap-1"><i data-lucide="headphones" class="text-accent-500" style="width:18px;height:18px"></i><span>Support 24/7</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report -->
+        <button class="w-full text-center text-xs text-ink-500 hover:text-ink-700 inline-flex items-center justify-center gap-1.5">
+          <i data-lucide="flag" style="width:13px;height:13px"></i> Laporkan layanan ini
+        </button>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="bg-ink-900 text-ink-400 mt-10">
+  <div class="max-w-[1280px] mx-auto px-6 py-14">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <!-- Brand col -->
+      <div class="col-span-2">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-lg bg-brand-700 flex items-center justify-center">
+            <i data-lucide="hexagon" class="text-white" style="width:20px;height:20px"></i>
+          </div>
+          <span class="text-[19px] font-bold tracking-tight text-white">ServiceHub</span>
+        </div>
+        <p class="mt-4 text-sm text-ink-400 max-w-sm leading-relaxed">
+          Marketplace digital service yang menghubungkan kamu dengan penyedia jasa profesional terbaik di Indonesia.
+        </p>
+        <div class="mt-5 flex items-center gap-2">
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white transition">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h5 class="text-white text-sm font-semibold uppercase tracking-wider">Tentang Kami</h5>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-white">Perusahaan</a></li>
+          <li><a href="#" class="hover:text-white">Karir</a></li>
+          <li><a href="#" class="hover:text-white">Press</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white text-sm font-semibold uppercase tracking-wider">Bantuan</h5>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-white">Pusat Bantuan</a></li>
+          <li><a href="#" class="hover:text-white">Hubungi Kami</a></li>
+          <li><a href="#" class="hover:text-white">Jadi Penyedia Jasa</a></li>
+          <li><a href="#" class="hover:text-white">Kepercayaan &amp; Keamanan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white text-sm font-semibold uppercase tracking-wider">Legal</h5>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-white">Kebijakan Privasi</a></li>
+          <li><a href="#" class="hover:text-white">Syarat &amp; Ketentuan</a></li>
+          <li><a href="#" class="hover:text-white">Kebijakan Cookie</a></li>
+          <li><a href="#" class="hover:text-white">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+      <p>© 2026 ServiceHub. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <span>Bahasa: <strong class="text-white">Indonesia</strong></span>
+        <span class="text-white/30">|</span>
+        <span>Mata uang: <strong class="text-white">IDR (Rp)</strong></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== SCRIPTS ============================== -->
+<script>
+  // ---- Carousel ----
+  const galleryImages = [
+    { src: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1400&q=80', alt: 'Logo concept — Aurora Coffee' },
+    { src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1400&q=80', alt: 'Logo mockup on packaging' },
+    { src: 'https://images.unsplash.com/photo-1606115915090-be18fea23ec7?w=1400&q=80', alt: 'Brand identity board' },
+    { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=80', alt: 'Workspace setup' },
+    { src: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=1400&q=80', alt: 'Logo variations' },
+    { src: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1400&q=80', alt: 'Color palette study' },
+  ];
+
+  let currentImg = 0;
+  const mainImage = document.getElementById('mainImage');
+  const imageCount = document.getElementById('imageCount');
+  const thumbRow = document.getElementById('thumbRow');
+
+  function renderThumbs() {
+    thumbRow.innerHTML = galleryImages.map((img, i) => `
+      <button data-idx="${i}" class="thumb shrink-0 w-[88px] h-[64px] rounded-lg overflow-hidden border-2 ${i===currentImg?'border-brand-700':'border-transparent'} transition">
+        <img src="${img.src.replace('w=1400','w=200')}" class="w-full h-full object-cover ${i===currentImg?'':'opacity-70 hover:opacity-100'}" alt="" />
+      </button>
+    `).join('');
+    thumbRow.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => setImg(+t.dataset.idx)));
+  }
+  function setImg(i) {
+    currentImg = (i + galleryImages.length) % galleryImages.length;
+    mainImage.src = galleryImages[currentImg].src;
+    mainImage.alt = galleryImages[currentImg].alt;
+    imageCount.textContent = `${currentImg+1} / ${galleryImages.length}`;
+    renderThumbs();
+  }
+  document.getElementById('prevImg').addEventListener('click', () => setImg(currentImg-1));
+  document.getElementById('nextImg').addEventListener('click', () => setImg(currentImg+1));
+  renderThumbs();
+
+  // ---- Tabs ----
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const id = btn.dataset.tab;
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // ---- Portfolio grid ----
+  const portfolioItems = [
+    { img: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&q=80', title: 'Aurora Coffee Co.', cat: 'Logo · F&B' },
+    { img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80', title: 'Nusa Wellness', cat: 'Brand Identity · Spa' },
+    { img: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80', title: 'Kanvas Studio', cat: 'Logo · Creative' },
+    { img: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80', title: 'Pijar Tech', cat: 'Logo · SaaS' },
+    { img: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=600&q=80', title: 'Bumi Organic', cat: 'Packaging · Retail' },
+    { img: 'https://images.unsplash.com/photo-1606115915090-be18fea23ec7?w=600&q=80', title: 'Saga Lawfirm', cat: 'Logo · Professional' },
+  ];
+  document.getElementById('portfolioGrid').innerHTML = portfolioItems.map(p => `
+    <a href="#" class="portfolio-item group block relative rounded-xl aspect-[4/3] bg-surface-muted shadow-card hover:shadow-card-lg transition">
+      <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover rounded-xl" />
+      <div class="overlay rounded-xl"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-4 text-white translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition">
+        <div class="font-semibold text-[15px] leading-tight">${p.title}</div>
+        <div class="text-xs text-white/80 mt-0.5">${p.cat}</div>
+      </div>
+    </a>
+  `).join('');
+
+  // ---- Rating distribution ----
+  const dist = [
+    {stars: 5, pct: 87, count: 215},
+    {stars: 4, pct: 9,  count: 22},
+    {stars: 3, pct: 3,  count: 8},
+    {stars: 2, pct: 1,  count: 2},
+    {stars: 1, pct: 0,  count: 1},
+  ];
+  document.getElementById('distBars').innerHTML = dist.map(d => `
+    <div class="flex items-center gap-3 text-sm py-1">
+      <span class="w-10 flex items-center gap-1 text-ink-700 font-medium">${d.stars}<i data-lucide="star" class="star-fill" style="width:13px;height:13px"></i></span>
+      <div class="dist-bar flex-1 h-2"><div style="width:${d.pct}%"></div></div>
+      <span class="w-12 text-right text-ink-500 text-xs tabular-nums">${d.count}</span>
+    </div>
+  `).join('');
+
+  // ---- Reviews ----
+  const reviews = [
+    {
+      name: 'Diana Permata', avatar: 'https://i.pravatar.cc/80?img=47', date: '12 Mei 2026', rating: 5,
+      comment: 'Sangat puas dengan hasil kerjanya! Rian sangat sabar dan profesional. Konsep yang diberikan benar-benar mewakili visi brand kami. Revisi cepat dan komunikasi lancar. Pasti akan order lagi untuk projek brand identity berikutnya.',
+      pkg: 'Paket Standard'
+    },
+    {
+      name: 'Adi Saputra', avatar: 'https://i.pravatar.cc/80?img=15', date: '4 Mei 2026', rating: 5,
+      comment: 'Logo untuk UMKM saya jadi sangat keren. Awalnya bingung mau seperti apa, tapi Rian membantu memberi arahan dari awal. File source dikirim lengkap. Recommended banget untuk yang baru memulai bisnis.',
+      pkg: 'Paket Basic'
+    },
+    {
+      name: 'Sari Hapsari', avatar: 'https://i.pravatar.cc/80?img=23', date: '28 April 2026', rating: 4,
+      comment: 'Hasilnya bagus dan profesional. Ada sedikit miss komunikasi di awal soal warna, tapi langsung beres setelah dibahas. Pengerjaan tepat waktu sesuai janji. Terima kasih Rian!',
+      pkg: 'Paket Premium'
+    },
+  ];
+  function starsHTML(n){
+    let s='';
+    for (let i=0;i<5;i++) s += `<i data-lucide="star" class="${i<n?'star-fill':'star-empty'}" style="width:14px;height:14px"></i>`;
+    return `<div class="flex items-center gap-0.5">${s}</div>`;
+  }
+  document.getElementById('reviewList').innerHTML = reviews.map(r => `
+    <article class="rounded-2xl border border-surface-border bg-white p-5 hover:shadow-card transition">
+      <header class="flex items-start gap-3">
+        <img src="${r.avatar}" class="w-10 h-10 rounded-full object-cover shrink-0" alt="" />
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <div class="flex items-center gap-2">
+              <h4 class="font-semibold text-ink-900">${r.name}</h4>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 font-medium">${r.pkg}</span>
+            </div>
+            <span class="text-xs text-ink-500">${r.date}</span>
+          </div>
+          <div class="mt-1">${starsHTML(r.rating)}</div>
+        </div>
+      </header>
+      <p class="mt-3 text-[14.5px] leading-[1.7] text-ink-700">${r.comment}</p>
+      <div class="mt-3 flex items-center gap-4 text-xs text-ink-500">
+        <button class="inline-flex items-center gap-1.5 hover:text-brand-700"><i data-lucide="thumbs-up" style="width:14px;height:14px"></i> Membantu (12)</button>
+        <button class="inline-flex items-center gap-1.5 hover:text-brand-700"><i data-lucide="message-circle" style="width:14px;height:14px"></i> Balas</button>
+      </div>
+    </article>
+  `).join('');
+
+  // ---- FAQ ----
+  const faqs = [
+    { q: 'Berapa lama waktu pengerjaan?', a: 'Pengerjaan standar 3–5 hari kerja tergantung paket yang dipilih. Paket Basic 3 hari, Standard 4 hari, dan Premium 5 hari. Express delivery tersedia dengan biaya tambahan.' },
+    { q: 'Apakah saya mendapatkan file source?', a: 'Ya, semua paket menyediakan file source dalam format AI dan PSD, lengkap dengan layer yang rapi sehingga mudah diedit di kemudian hari.' },
+    { q: 'Berapa kali revisi yang saya dapatkan?', a: 'Paket Basic mendapat 2x revisi, Standard 5x revisi, dan Premium revisi tanpa batas hingga Anda benar-benar puas.' },
+    { q: 'Apakah saya mendapatkan hak cipta penuh?', a: 'Ya, setelah pekerjaan selesai dan pembayaran lunas, seluruh hak cipta atas logo dialihkan sepenuhnya kepada Anda.' },
+    { q: 'Bagaimana jika hasilnya tidak sesuai harapan?', a: 'ServiceHub menjamin pengembalian dana 100% jika hasil tidak sesuai brief dan tidak dapat diperbaiki melalui proses revisi. Silakan baca kebijakan Money Back kami.' },
+  ];
+  document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+    <details ${i===0?'open':''} class="group">
+      <summary class="cursor-pointer list-none flex items-center justify-between gap-4 px-5 py-4 hover:bg-surface-muted/60 transition">
+        <span class="font-semibold text-ink-900 text-[15px]">${f.q}</span>
+        <i data-lucide="chevron-down" class="text-ink-500 transition group-open:rotate-180 shrink-0" style="width:18px;height:18px"></i>
+      </summary>
+      <div class="px-5 pb-5 text-[14.5px] text-ink-700 leading-[1.7]">${f.a}</div>
+    </details>
+  `).join('');
+
+  // ---- Package switcher ----
+  const packages = {
+    basic: {
+      name: 'Paket Basic', tagline: 'Untuk kebutuhan dasar & UMKM',
+      price: 350000, duration: '3 hari kerja', revisions: '2x revisi', concepts: '1 konsep',
+      features: ['1 konsep logo original','File JPG & PNG','2x revisi minor','Pengerjaan 3 hari kerja','Hak cipta penuh'],
+    },
+    standard: {
+      name: 'Paket Standard', tagline: 'Pilihan paling populer ⭐',
+      price: 750000, duration: '4 hari kerja', revisions: '5x revisi', concepts: '3 konsep',
+      features: ['3 konsep logo original','File source AI + PSD','File JPG, PNG, SVG, PDF','5x revisi','Variasi logo (color, B&W, vertical)','Pengerjaan 4 hari kerja','Hak cipta penuh'],
+    },
+    premium: {
+      name: 'Paket Premium', tagline: 'Identitas brand komplet',
+      price: 1500000, duration: '5 hari kerja', revisions: 'Tanpa batas', concepts: '5 konsep',
+      features: ['5 konsep logo original','File source lengkap (AI, PSD, EPS)','Semua format file (PNG, SVG, PDF, EPS)','Revisi tanpa batas','Mini brand guideline (10 hal.)','Sosial media kit (10 template)','Pengerjaan 5 hari kerja','Hak cipta penuh & lisensi komersial'],
+    }
+  };
+  function rupiah(n){ return 'Rp ' + n.toLocaleString('id-ID'); }
+  function renderPackage(key) {
+    const p = packages[key];
+    document.getElementById('pkgName').textContent = p.name;
+    document.getElementById('pkgTagline').textContent = p.tagline;
+    document.getElementById('pkgPrice').textContent = rupiah(p.price);
+    document.getElementById('pkgDuration').textContent = p.duration;
+    document.getElementById('pkgRev').textContent = p.revisions;
+    document.getElementById('pkgConcepts').textContent = p.concepts;
+    document.getElementById('pkgFeatures').innerHTML = p.features.map(f => `
+      <li class="flex items-start gap-2.5">
+        <span class="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center"><i data-lucide="check" style="width:11px;height:11px;stroke-width:3.5"></i></span>
+        <span class="text-ink-800 leading-snug">${f}</span>
+      </li>`).join('');
+    const fee = Math.round(p.price * 0.05);
+    document.getElementById('costService').textContent = rupiah(p.price);
+    document.getElementById('costFee').textContent = rupiah(fee);
+    document.getElementById('costTotal').textContent = rupiah(p.price + fee);
+    lucide.createIcons();
+  }
+  document.querySelectorAll('.pkg-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.pkg-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderPackage(tab.dataset.pkg);
+    });
+  });
+  renderPackage('basic');
+
+  // ---- Init lucide ----
+  lucide.createIcons();
+</script>
+</body>
+</html>
